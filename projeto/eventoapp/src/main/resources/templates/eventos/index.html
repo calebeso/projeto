@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="htpp://www.ultraq.net.nz/thymeleaf/layout">
+<head lang="pt-br">
+
+<!-- TAGS DO MATERIALIZE CSS PARA ESTILIZAÇÃO -->
+
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="materialize-v1.0.0/materialize/css/materialize.min.css"
+	media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta charset="utf-8" />
+<title>EventoApp</title>
+</head>
+<body>
+	<h1>Lista de Evento</h1>
+	<h3>
+		<a href="/cadastrarEvento" class="waves-effect waves-light btn"><i
+			class="material-icons left">add_circle</i>
+			Cadastrar Evento
+			</a>
+	</h3>
+	<table>
+	<thead>
+	    <tr>
+	      <th>Nome</th>
+          <th>Destino</th>
+          <th>Km</th>
+          <th>Data Saida</th>
+          <th>Data Chegada</th>
+          <th>Hora Saida</th>
+          <th>Hora Chegada</th>	    
+	    </tr>
+	</thead>
+	<tbody>
+	<tr th:each="evento : ${eventos}">
+		<!-- USANDO  THYMELEAF PARA LISTAGEM -->
+			<td>
+				<span th:text="${evento.nome}"></span>
+			</td>
+			<td>
+				<span th:text="${evento.cidadeDestino}"></span>
+			</td>
+			<td>
+				<span th:text="${evento.km}"></span>
+			</td>
+			<td>
+				<span th:text="${evento.dataSaida}"></span>
+			</td>
+			<td>
+				<span th:text="${evento.dataChegada}"></span>
+			</td>
+			<td>
+				<span th:text="${evento.horaSaida}"></span>
+			</td>
+			<td>
+				<span th:text="${evento.previsaoChegada}"></span>
+			</td>
+		</tr>
+		</tbody>
+    </table>
+	
+	
+
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="materialize-v1.0.0/materialize/js/materialize.min.js"></script>
+</body>
+</html>
